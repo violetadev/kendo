@@ -1,0 +1,26 @@
+.day-cycle {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  transition: background 1.5s ease;
+
+  &.morning {
+    background: linear-gradient(to bottom, #fffae3, #ffd580);
+  }
+
+  &.afternoon {
+    background: linear-gradient(to bottom, #87cefa, #00bfff);
+  }
+
+  &.sunset {
+    background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+  }
+
+  &.nighttime {
+    background: linear-gradient(to bottom, #2c3e50, #000000);
+  }
+}
