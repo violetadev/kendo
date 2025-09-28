@@ -19,7 +19,8 @@ export const Hints = () => {
       {visibleWindow && (
         <Window title={'Hints'} onClose={toggleWindow}>
           <Typography.h3>Instructions</Typography.h3>
-          <Typography.p>Find the Wizard's familiar. Click on the obstacles and monsters to destroy them.</Typography.p>
+          <Typography.p>The Wizard's familiar has vanished. Break the barriers and strike down the lurking monsters—each click brings you closer to the rescue.</Typography.p>
+          <Typography.p>To move an obstacle or attack an enemy, click repeatedly until you succeed!</Typography.p>
         </Window>
       )}
     </div>

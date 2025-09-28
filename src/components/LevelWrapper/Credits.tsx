@@ -4,7 +4,7 @@ import { CHARACTERS, NPCS } from "../../common/";
 import { Background } from "../Background";
 import { Typography } from "@progress/kendo-react-common";
 import { StackLayout } from "@progress/kendo-react-layout";
-import { Notification, NotificationGroup } from '@progress/kendo-react-notification';
+import { Notification } from '@progress/kendo-react-notification';
 import { Fade } from "@progress/kendo-react-animation";
 
 const Credits: React.FC = () => {
@@ -36,7 +36,7 @@ const Credits: React.FC = () => {
             You defeated all the monsters in {fights.reduce((sum, f) => sum + f.time, 0)} seconds!
           </Typography.h3>
           <Typography.p>
-            I have built this with ❤️ using React and <a target="_blank" href="https://www.telerik.com/kendo-react-ui/components/introduction"> KendoReact</a>.
+            I have built this with ❤️ using React and <a rel="noreferrer" target="_blank" href="https://www.telerik.com/kendo-react-ui/components/introduction"> KendoReact</a>.
           </Typography.p>
           <Fade>
             {showNotification && <Notification
@@ -46,7 +46,7 @@ const Credits: React.FC = () => {
               style={{ right: 10, position: 'fixed', bottom: 20, maxWidth: 400 }}
             >
               <Typography.p>
-                Congrats on completing the game! Visit my <a target="_blank" href="https://dev.to/violetadev">Dev.to profile</a> to see what I'm up to!
+                Congrats on completing the game! Visit my <a rel="noreferrer" target="_blank" href="https://dev.to/violetadev">Dev.to profile</a> to see what I'm up to!
               </Typography.p>
             </Notification>}
           </Fade>

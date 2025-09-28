@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NPCS, CHARACTER_TYPE, MONSTERS, OBSTACLE_TYPE, OBSTACLES, useDialog } from "../../../common";
 import { Clicker, Fight, Story } from "../../../Story";
 import { useCharacterContext } from "../../../context/CharacterContext";

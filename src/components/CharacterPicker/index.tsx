@@ -4,11 +4,11 @@ import { useCharacterContext } from "../../context/CharacterContext";
 import CharacterPickerToolbar from "./CharacterPickerToolbar";
 import { Accent, CHARACTER_TYPE, CHARACTERS } from "../../common/";
 import { UsernameInput } from "../UsernameInput";
-import { Dialog, DialogActionsBar, Window } from '@progress/kendo-react-dialogs';
+import { Dialog, DialogActionsBar } from '@progress/kendo-react-dialogs';
 import { Typography } from "@progress/kendo-react-common";
 
 const CharacterPicker: React.FC = () => {
-  const { setCharacterId, username, setLevel } = useCharacterContext();
+  const { setCharacterId, setLevel } = useCharacterContext();
   const [visibleDialog, setVisibleDialog] = React.useState<boolean>(false);
   const [characterSelected, setCharacterSelected] = useState<CHARACTER_TYPE>({
     ...CHARACTERS[0],

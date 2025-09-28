@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useCharacterContext } from "../../context/CharacterContext";
 import { CharacterSelection } from "./CharacterSelection";
 import Credits from "./Credits";
@@ -9,7 +8,7 @@ import { LevelThree } from "./Level3";
 import { LevelFour } from "./Level4";
 
 export const LevelWrapper = () => {
-  const { level, setLevel } = useCharacterContext();
+  const { level } = useCharacterContext();
 
   return (
     <div>

@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { CHARACTER_TYPE, CHARACTERS, LEVEL, LOCATION_TYPE, OBSTACLE_TYPE } from "../common";
 import { useDialog } from "../common/useDialog";
 import { useCharacterContext } from "../context/CharacterContext";
 import { Background } from "../components/Background";
 import { StackLayout } from "@progress/kendo-react-layout";
 import { Character } from "../components/Character";
-import { Monster } from "../components/Obstacles/Monster";
 import { Obstacles } from "../components/Obstacles";
 import { Typography } from "@progress/kendo-react-common";
 

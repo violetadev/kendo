@@ -6,7 +6,6 @@ import { Background } from "../components/Background";
 import { StackLayout } from "@progress/kendo-react-layout";
 import { Character } from "../components/Character";
 import { Button } from "@progress/kendo-react-buttons";
-import { Tooltip } from "@progress/kendo-react-tooltip";
 import { Typography } from "@progress/kendo-react-common";
 
 type StoryProps = {
