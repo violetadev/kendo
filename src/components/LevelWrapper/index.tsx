@@ -13,7 +13,6 @@ export const LevelWrapper = () => {
 
   return (
     <div>
-      <Credits />
       {level === 0 && <CharacterSelection />}
       {(level === 1 || level === 1.5) && <Intro />}
       {(level === 2 || level === 2.1 || level === 2.5) && <LevelOne />}
