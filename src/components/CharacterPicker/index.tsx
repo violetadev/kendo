@@ -2,28 +2,35 @@ import React, { useState } from "react";
 import { Button } from "@progress/kendo-react-buttons";
 import { useCharacterContext } from "../../context/CharacterContext";
 import CharacterPickerToolbar from "./CharacterPickerToolbar";
-import { CHARACTER_TYPE, CHARACTERS } from "../../common/";
+import { Accent, CHARACTER_TYPE, CHARACTERS } from "../../common/";
 import { UsernameInput } from "../UsernameInput";
-
-type Character = {
-  id: string;
-  name: string;
-  image: string;
-};
-
-type Item = Character & { selected?: boolean };
+import { Dialog, DialogActionsBar, Window } from '@progress/kendo-react-dialogs';
+import { Typography } from "@progress/kendo-react-common";
 
 const CharacterPicker: React.FC = () => {
   const { setCharacterId, username, setLevel } = useCharacterContext();
-  const [characterSelected, setCharacterSelected] = useState<CHARACTER_TYPE>(CHARACTERS[0]);
+  const [visibleDialog, setVisibleDialog] = React.useState<boolean>(false);
+  const [characterSelected, setCharacterSelected] = useState<CHARACTER_TYPE>({
+    ...CHARACTERS[0],
+    accent: CHARACTERS[0].accent as Accent
+  });
 
   const handleItemClick = (item: string) => {
-    setCharacterSelected(CHARACTERS.find(character => character.id === item) || CHARACTERS[0]);
+    const found = CHARACTERS.find(character => character.id === item) || CHARACTERS[0];
+    setCharacterSelected({
+      ...found,
+      accent: found.accent as Accent
+    });
   };
 
   const handleSave = () => {
     setCharacterId(characterSelected.id);
     setLevel(1)
+    toggleDialog()
+  };
+
+  const toggleDialog = () => {
+    setVisibleDialog(!visibleDialog);
   };
 
   return (
@@ -40,8 +47,18 @@ const CharacterPicker: React.FC = () => {
         </div>
       )}
       <CharacterPickerToolbar setSelected={handleItemClick} selected={characterSelected.id} />
-      <UsernameInput />
-      <Button themeColor="primary" disabled={!characterSelected || username.length < 2} onClick={handleSave}>
+      {visibleDialog && (
+        <Dialog onClose={toggleDialog}>
+          <Typography.p style={{ margin: '25px', textAlign: 'center' }}>What is your name?</Typography.p>
+          <DialogActionsBar>
+            <UsernameInput defaultValue={characterSelected.name} />
+            <Button type="button" onClick={handleSave}>
+              Save
+            </Button>
+          </DialogActionsBar>
+        </Dialog>
+      )}
+      <Button themeColor="primary" disabled={!characterSelected} onClick={toggleDialog}>
         Save character
       </Button>
     </div>
