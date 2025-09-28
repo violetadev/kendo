@@ -33,8 +33,6 @@ const getDialog = (level: LEVEL) => {
       return LEVEL_THREE_DIALOG.ending;
     case 5:
       return LEVEL_FOUR_DIALOG.story
-    case 5.5:
-      return LEVEL_FOUR_DIALOG.ending
     default:
       return INTRO_DIALOG.story;
   }

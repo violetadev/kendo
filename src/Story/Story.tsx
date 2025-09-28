@@ -14,7 +14,7 @@ type StoryProps = {
 }
 
 export const Story: React.FC<StoryProps> = ({ location, npc, nextLevel }) => {
-  const { characterId, username, level, setLevel } = useCharacterContext();
+  const { characterId, username, level, setLevel, timeOfDay } = useCharacterContext();
   const {
     handleNext,
     isMainTurn,
@@ -30,7 +30,7 @@ export const Story: React.FC<StoryProps> = ({ location, npc, nextLevel }) => {
   const mainCharacter = CHARACTERS.find(c => c.id === characterId) as CHARACTER_TYPE;
 
   return (
-    <Background timeOfDayProp="afternoon">
+    <Background timeOfDayProp={timeOfDay}>
       <StackLayout
         orientation="vertical"
         gap={24}

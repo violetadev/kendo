@@ -16,7 +16,7 @@ type ClickerProps = {
 }
 
 export const Clicker: React.FC<ClickerProps> = ({ location, npc, nextLevel, obstacle }) => {
-  const { characterId, username } = useCharacterContext();
+  const { characterId, username, timeOfDay } = useCharacterContext();
   const {
     handleNext,
     isMainTurn,
@@ -30,7 +30,7 @@ export const Clicker: React.FC<ClickerProps> = ({ location, npc, nextLevel, obst
   const mainCharacter = CHARACTERS.find(c => c.id === characterId) as CHARACTER_TYPE;
 
   return (
-    <Background timeOfDayProp="afternoon">
+    <Background timeOfDayProp={timeOfDay}>
       <StackLayout
         orientation="vertical"
         gap={24}

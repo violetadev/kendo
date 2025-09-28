@@ -1,6 +1,7 @@
 import React from "react";
-import { Accent, PixelBubble } from "../PixelBubble";
+import { PixelBubble } from "../PixelBubble";
 import { useCharacterContext } from "../../context/CharacterContext";
+import { Accent } from "../../common";
 
 type CharacterProps = { dialogText: string, handleNext: () => void, accent: Accent, characterName: string, characterImage?: string, isTurn: boolean }
 
@@ -25,7 +26,7 @@ export const Character: React.FC<CharacterProps> = ({ dialogText, handleNext, ac
             marginBottom: 12,
           }}
         >
-          <PixelBubble title={characterName} accent={accent} onNext={handleNext}>
+          <PixelBubble title={characterName} accent={accent} onNext={handleNext} direction={characterName === username ? "right" : "left"}>
             {dialogText}
           </PixelBubble>
         </div>

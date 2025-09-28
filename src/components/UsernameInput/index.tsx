@@ -9,7 +9,7 @@ export const UsernameInput = ({ defaultValue }: { defaultValue: string }) => {
     if (!username) {
       setUsername(defaultValue);
     }
-  }, [characterId, username, setUsername]);
+  }, [characterId, username, setUsername, defaultValue]);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8, maxWidth: 300 }}>

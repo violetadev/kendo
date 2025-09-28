@@ -15,7 +15,7 @@ type FightProps = {
 }
 
 export const Fight: React.FC<FightProps> = ({ location, npc, nextLevel, monster }) => {
-  const { characterId, username, setLevel } = useCharacterContext();
+  const { characterId, username, setLevel, timeOfDay } = useCharacterContext();
   const {
     handleNext,
     isMainTurn,
@@ -35,7 +35,7 @@ export const Fight: React.FC<FightProps> = ({ location, npc, nextLevel, monster 
   const mainCharacter = CHARACTERS.find(c => c.id === characterId) as CHARACTER_TYPE;
 
   return (
-    <Background timeOfDayProp="afternoon">
+    <Background timeOfDayProp={timeOfDay}>
       <StackLayout
         orientation="vertical"
         gap={24}
