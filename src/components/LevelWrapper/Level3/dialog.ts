@@ -7,7 +7,7 @@ export const LEVEL_THREE_DIALOG = {
       { id: 'main', text: "<<END>>" },
     ],
     npc: [
-      { id: 'cindrel_2', text: "The Wizard never comes down to the dungeons anymore." },
+      { id: 'cindrel_2', text: "Looks like the Wizard never comes down here anymore." },
       { id: 'cindrel_2', text: "With my new powers you have unlocked a new spell, click away!" },
       { id: 'cindrel_2', text: "<<END>>" },
     ],
@@ -18,8 +18,8 @@ export const LEVEL_THREE_DIALOG = {
       { id: 'main', text: "WOAH!!!" },
     ],
     npc: [
-      { id: 'cindrel_2', text: "This one is so powerful!!" },
-      { id: 'cindrel_2', text: "<<END>>" },
+      { id: 'cindrel_2_worried', text: "This one is so powerful!!" },
+      { id: 'cindrel_2_worried', text: "<<END>>" },
     ],
   },
   ending: {
@@ -33,7 +33,7 @@ export const LEVEL_THREE_DIALOG = {
     npc: [
       { id: 'familiar', text: "Meow!" },
       { id: 'cindrel_2', text: "Is that...?" },
-      { id: 'cindrel_2', text: "The familiar is a... cat?" },
+      { id: 'cindrel_2_worried', text: "The familiar is a... cat?" },
       { id: 'cindrel_2', text: "<<END>>" },
     ],
   },

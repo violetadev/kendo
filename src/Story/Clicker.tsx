@@ -7,6 +7,7 @@ import { StackLayout } from "@progress/kendo-react-layout";
 import { Character } from "../components/Character";
 import { Monster } from "../components/Obstacles/Monster";
 import { Obstacles } from "../components/Obstacles";
+import { Typography } from "@progress/kendo-react-common";
 
 type ClickerProps = {
   location: LOCATION_TYPE;
@@ -54,16 +55,20 @@ export const Clicker: React.FC<ClickerProps> = ({ location, npc, nextLevel, obst
             characterImage={mainCharacter.image}
           />
           {/* LOCATION */}
-          <div style={{ position: "relative", width: 400, height: 600 }}>
-            <img
-              src={location.img}
-              alt={location.name}
-              width={400}
-              height={600}
-              style={{ transform: "scaleX(-1)" }}
-            />
-            <Obstacles icon={obstacle.spell} obstacleImage={obstacle.img} disabled={!allDone} nextLevel={nextLevel} />
-          </div>
+          <StackLayout orientation="vertical" align={{ horizontal: "center" }} gap={12}>
+            <Typography.h1>{location.name}</Typography.h1>
+            <div style={{ height: "42px" }} />
+            <div style={{ position: "relative", width: 400, height: 600 }}>
+              <img
+                src={location.img}
+                alt={location.name}
+                width={400}
+                height={600}
+                style={{ transform: "scaleX(-1)" }}
+              />
+              <Obstacles icon={obstacle.spell} obstacleImage={obstacle.img} disabled={!allDone} nextLevel={nextLevel} />
+            </div>
+          </StackLayout>
           {/* NPC */}
           <Character
             isTurn={!isMainTurn && !npcDone && !allDone}

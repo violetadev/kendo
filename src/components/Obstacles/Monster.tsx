@@ -7,6 +7,7 @@ import { useCharacterContext } from "../../context/CharacterContext";
 
 type MonsterProps = {
   monsterImage: string;
+  disabled: boolean;
   icon?: string;
   setIsDone: () => void;
 }
@@ -24,7 +25,7 @@ const getHp = (level: LEVEL) => {
   }
 }
 
-export const Monster: React.FC<MonsterProps> = ({ monsterImage, icon, setIsDone }) => {
+export const Monster: React.FC<MonsterProps> = ({ monsterImage, icon, setIsDone, disabled }) => {
   const { triggerFlash, FlashOverlay } = useFlash();
   const { level } = useCharacterContext();
   const [jump, setJump] = useState(false);
@@ -36,6 +37,9 @@ export const Monster: React.FC<MonsterProps> = ({ monsterImage, icon, setIsDone 
   const remainingHp = Math.max(0, maxHp - monsterHits * 10);
 
   const hitMonster = (e: React.MouseEvent) => {
+    if (disabled) {
+      return;
+    }
     triggerFlash(e.clientX, e.clientY, icon);
 
     // Trigger jump animation

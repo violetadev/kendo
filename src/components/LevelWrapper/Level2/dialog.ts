@@ -19,7 +19,7 @@ export const LEVEL_TWO_DIALOG = {
       { id: 'main', text: "<<END>>" },
     ],
     npc: [
-      { id: 'cindrel', text: "Another one!" },
+      { id: 'cindrel_worried', text: "Another one!" },
     ],
   },
   ending: {
@@ -30,7 +30,7 @@ export const LEVEL_TWO_DIALOG = {
       { id: 'main', text: "Cindrel!! You seem so much stronger now! Let's keep searching" },
     ],
     npc: [
-      { id: 'cindrel', text: "I am feeling a bit strange..." },
+      { id: 'cindrel_worried', text: "I am feeling a bit strange..." },
       { id: 'cindrel_2', text: "My powers are growing with you, I feel amazing!" },
       { id: 'cindrel_2', text: "<<END>>" },
     ],

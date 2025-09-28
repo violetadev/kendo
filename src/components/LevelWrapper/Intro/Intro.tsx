@@ -10,7 +10,7 @@ export const Intro: React.FC = () => {
 
   const location = {
     img: 'assets/office.png',
-    name: 'The Office'
+    name: "Wizard's Quarters"
   }
 
   useEffect(() => {

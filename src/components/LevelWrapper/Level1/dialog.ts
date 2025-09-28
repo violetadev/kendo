@@ -18,8 +18,8 @@ export const LEVEL_ONE_DIALOG = {
       { id: 'main', text: "On guard!" },
     ],
     npc: [
-      { id: 'cindrel', text: "Oh no, it's a monster!" },
-      { id: 'cindrel', text: "<<END>>" },
+      { id: 'cindrel_worried', text: "Hurry up! Before the time runs out!" },
+      { id: 'cindrel_worried', text: "<<END>>" },
     ],
   },
   ending: {

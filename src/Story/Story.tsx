@@ -7,6 +7,7 @@ import { StackLayout } from "@progress/kendo-react-layout";
 import { Character } from "../components/Character";
 import { Button } from "@progress/kendo-react-buttons";
 import { Tooltip } from "@progress/kendo-react-tooltip";
+import { Typography } from "@progress/kendo-react-common";
 
 type StoryProps = {
   location: LOCATION_TYPE;
@@ -26,7 +27,6 @@ export const Story: React.FC<StoryProps> = ({ location, npc, nextLevel }) => {
     currentNpcId,
     currentNpc
   } = useDialog();
-  console.log(level)
 
   const mainCharacter = CHARACTERS.find(c => c.id === characterId) as CHARACTER_TYPE;
 
@@ -50,12 +50,14 @@ export const Story: React.FC<StoryProps> = ({ location, npc, nextLevel }) => {
             isTurn={isMainTurn && !mainDone && !allDone}
             dialogText={currentMain}
             handleNext={handleNext}
-            accent={mainCharacter.accent}
+            accent={mainCharacter.accent || 'green'}
             characterName={username}
             characterImage={mainCharacter.image}
           />
           {/* LOCATION */}
           <div>
+            <Typography.h1>{location.name}</Typography.h1>
+            <div style={{ height: "42px" }} />
             <img
               src={location.img}
               alt={location.name}
@@ -74,16 +76,14 @@ export const Story: React.FC<StoryProps> = ({ location, npc, nextLevel }) => {
             )}
           </div>
           {/* NPC */}
-          <Tooltip anchorElement="target" position="top" >
-            <Character
-              isTurn={!isMainTurn && !npcDone && !allDone}
-              dialogText={currentNpc}
-              handleNext={handleNext}
-              accent={npc.accent}
-              characterName={NPCS.find(n => n.id === currentNpcId)?.name ?? npc.name}
-              characterImage={NPCS.find(n => n.id === currentNpcId)?.image ?? npc.image}
-            />
-          </Tooltip>
+          <Character
+            isTurn={!isMainTurn && !npcDone && !allDone}
+            dialogText={currentNpc}
+            handleNext={handleNext}
+            accent={npc?.accent || 'green'}
+            characterName={NPCS.find(n => n.id === currentNpcId)?.name ?? npc?.name}
+            characterImage={NPCS.find(n => n.id === currentNpcId)?.image ?? npc?.image}
+          />
         </StackLayout>
       </StackLayout>
     </Background >

@@ -11,7 +11,9 @@ export const NPCS = [
   { id: 'familiar', image: 'assets/familiar.png', name: 'Fuzzle', accent: 'black'},
   { id: 'familiar_happy', image: 'assets/familiar_happy.png', name: 'Fuzzle', accent: 'black'},
   { id: 'cindrel', image: 'assets/mascot.png', name: 'Cindrel', accent: 'red'},
+  { id: 'cindrel_worried', image: 'assets/mascot_worried.png', name: 'Cindrel', accent: 'red'},
   { id: 'cindrel_2', image: 'assets/mascot2.png', name: 'Cindrel', accent: 'red'},
+  { id: 'cindrel_2_worried', image: 'assets/mascot2_worried.png', name: 'Cindrel', accent: 'red'},
   { id: 'cindrel_3', image: 'assets/mascot3.png', name: 'Cindrel', accent: 'red'},
 ];
 

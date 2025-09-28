@@ -85,6 +85,6 @@ export function useDialog() {
       currentMainId,
       currentNpcId,
     }),
-    [step, isMainTurn, mainIndex, npcIndex, mainDone, npcDone, allDone, dialog, currentMainId, currentNpcId]
+    [step, isMainTurn, mainIndex, npcIndex, mainDone, npcDone, allDone, dialog, currentNpc, currentMain, currentMainId, currentNpcId]
   );
 }

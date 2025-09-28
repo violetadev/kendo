@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
+import { FightLog } from "../common";
 
 type CharacterContextType = {
   characterId: string | null;
@@ -8,6 +9,8 @@ type CharacterContextType = {
   username: string;
   setUsername: (name: string) => void;
   timeOfDay?: string;
+  fights: FightLog[];
+  logFight: (entry: FightLog) => void;
 };
 
 const CharacterContext = createContext<CharacterContextType | undefined>(undefined);
@@ -16,18 +19,20 @@ export const CharacterProvider = ({ children }: { children: ReactNode }) => {
   const [characterId, setCharacterId] = useState<string | null>(null);
   const [level, setLevel] = useState<number>(0);
   const [username, setUsername] = useState<string>("");
+  const [fights, setFights] = useState<FightLog[]>([]);
+  const logFight = (entry: FightLog) => setFights((prev) => [...prev, entry]);
 
   const getTimeOfDay = () => {
     switch (true) {
-      case level < 2: return "morning";
-      case level < 3: return "sunset";
-      case level < 4: return "nighttime";
-      default: return "afternoon";
+      case level < 3: return "morning";
+      case level < 4: return "sunset";
+      case level < 5: return "nighttime";
+      default: return "sunset";
     }
   }
 
   return (
-    <CharacterContext.Provider value={{ characterId, setCharacterId, level, setLevel, username, setUsername, timeOfDay: getTimeOfDay() }}>
+    <CharacterContext.Provider value={{ characterId, setCharacterId, level, setLevel, username, setUsername, timeOfDay: getTimeOfDay(), fights, logFight }}>
       {children}
     </CharacterContext.Provider>
   );

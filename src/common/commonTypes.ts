@@ -7,6 +7,8 @@ export type CHARACTER_TYPE = {
 
 export type Accent = "purple" | "grey" | "blue" | "green" | "red" | "black";
 
+export type FightLog = { level: number; location: string; monster: string; time: number; at: number };
+
 export type OBSTACLE_TYPE = {
   id: string,
   img: string, 

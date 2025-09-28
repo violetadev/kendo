@@ -1,15 +1,23 @@
-import React from "react";
-import { NPCS, CHARACTER_TYPE, MONSTERS, OBSTACLE_TYPE, OBSTACLES } from "../../../common";
+import React, { use, useEffect, useState } from "react";
+import { NPCS, CHARACTER_TYPE, MONSTERS, OBSTACLE_TYPE, OBSTACLES, useDialog } from "../../../common";
 import { Clicker, Fight, Story } from "../../../Story";
 import { useCharacterContext } from "../../../context/CharacterContext";
 
 export const LevelOne: React.FC = () => {
   const { level } = useCharacterContext();
-  const npc = NPCS.find(npc => npc.id === 'cindrel') as CHARACTER_TYPE
+  const { currentNpc } = useDialog();
+  const [npc, setNpc] = useState(NPCS.find(npc => npc.id === 'cindrel') as CHARACTER_TYPE)
+
   const location = {
     img: 'assets/closet.png',
-    name: 'The Closet'
+    name: "The Broomkeep"
   }
+
+  useEffect(() => {
+    if ((currentNpc?.includes("Oh no, it's a monster!"))) {
+      setNpc(NPCS.find(npc => npc.id === 'cindrel_worried') as CHARACTER_TYPE)
+    }
+  }, [currentNpc, setNpc])
 
   return (
     <>

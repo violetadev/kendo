@@ -23,7 +23,7 @@ export const PixelBubble: React.FC<Props> = ({
   direction
 }) => {
   return (
-    <div className={`${styles.pixelWrap} ${styles[accent]}`} onClick={onNext}>
+    <div className={`${styles.pixelWrap} ${styles[accent || 'green']}`} onClick={onNext}>
       <Push
         enter={true}
         appear={true}
