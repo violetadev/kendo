@@ -8,7 +8,6 @@ export function useFlash() {
   const [spell, setSpell] = useState("✨")
 
   const triggerFlash = (x: number, y: number, icon?: string) => {
-    console.log('triggered')
     const id = Date.now();
     setSpell(icon || "✨")
     setFlashes((prev) => [...prev, { id, x, y }]);

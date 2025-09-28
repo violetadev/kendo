@@ -1,19 +1,19 @@
-@keyframes ratMove {
+@keyframes monsterMove {
   0%   { transform: translateX(0); }
   50%  { transform: translateX(20px); } 
   100% { transform: translateX(0); }
 }
 
-.rat {
+.monster {
   transition: transform 0.3s;
-  animation: ratMove 0.8s ease-in-out infinite; 
+  animation: monsterMove 0.8s ease-in-out infinite; 
 }
 
-.rat.jump {
-  animation: ratJump 0.4s ease; 
+.monster.jump {
+  animation: monsterJump 0.4s ease; 
 }
 
-@keyframes ratJump {
+@keyframes monsterJump {
   0%   { transform: translateY(0); }
   30%  { transform: translateY(-40px); }
   60%  { transform: translateY(0); }

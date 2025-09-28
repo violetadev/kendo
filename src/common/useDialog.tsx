@@ -5,6 +5,7 @@ import { LEVEL_TWO_DIALOG } from "../components/LevelWrapper/Level2/dialog";
 import { LEVEL_ONE_DIALOG } from "../components/LevelWrapper/Level1/dialog";
 import { LEVEL_THREE_DIALOG } from "../components/LevelWrapper/Level3/dialog";
 import { useCharacterContext } from "../context/CharacterContext";
+import { LEVEL_FOUR_DIALOG } from "../components/LevelWrapper/Level4/dialog";
 
 const getDialog = (level: LEVEL) => {
   switch (level) {
@@ -30,8 +31,10 @@ const getDialog = (level: LEVEL) => {
       return LEVEL_THREE_DIALOG.battle;
     case 4.5:
       return LEVEL_THREE_DIALOG.ending;
-    // case 5: 
-    // return FINAL_DIALOG
+    case 5:
+      return LEVEL_FOUR_DIALOG.story
+    case 5.5:
+      return LEVEL_FOUR_DIALOG.ending
     default:
       return INTRO_DIALOG.story;
   }
@@ -54,11 +57,17 @@ export function useDialog() {
   const mainDone = mainIndex >= (dialog.main?.length ?? 0);
   const npcDone = npcIndex >= (dialog.npc?.length ?? 0);
 
-  const currentMain = dialog.main?.[mainIndex] ?? "";
-  const currentNpc = dialog.npc?.[npcIndex] ?? "";
+  const mainLine = dialog.main?.[mainIndex];
+  const npcLine = dialog.npc?.[npcIndex];
 
-  const allDone = currentNpc.includes("<<END>>") || currentMain.includes("<<END>>")
-  console.log(level, dialog)
+  const currentMain = mainLine?.text ?? "";
+  const currentMainId = mainLine?.id ?? "main";
+
+  const currentNpc = npcLine?.text ?? "";
+  const currentNpcId = npcLine?.id ?? "npc-1";
+
+  const allDone = currentNpc.includes("<<END>>") || currentMain.includes("<<END>>");
+
   useEffect(() => {
     setStep(0);
   }, [level, dialog]);
@@ -75,7 +84,9 @@ export function useDialog() {
       allDone,
       currentMain,
       currentNpc,
+      currentMainId,
+      currentNpcId,
     }),
-    [step, isMainTurn, mainIndex, npcIndex, mainDone, npcDone, allDone, dialog]
+    [step, isMainTurn, mainIndex, npcIndex, mainDone, npcDone, allDone, dialog, currentMainId, currentNpcId]
   );
 }

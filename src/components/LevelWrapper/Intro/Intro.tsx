@@ -6,7 +6,7 @@ import { useCharacterContext } from "../../../context/CharacterContext";
 export const Intro: React.FC = () => {
   const { currentNpc, } = useDialog();
   const { level } = useCharacterContext();
-  const [npc, setNpc] = useState((currentNpc?.includes("Forgive me") || currentNpc.includes("It is no ordinary creature")) ? NPCS.find(npc => npc.id === 'wizard_sad') : NPCS.find(npc => npc.id === 'wizard'))
+  const [npc, setNpc] = useState(NPCS.find(npc => npc.id === 'wizard'))
 
   const location = {
     img: 'assets/office.png',
@@ -18,6 +18,14 @@ export const Intro: React.FC = () => {
       setNpc(NPCS.find(npc => npc.id === 'cindrel'))
     }
   }, [level])
+
+  useEffect(() => {
+    console.log(currentNpc, '>current')
+    if ((currentNpc?.includes("Forgive me") || currentNpc.includes("It is no ordinary creature"))) {
+      console.log("in")
+      setNpc(NPCS.find(npc => npc.id === 'wizard_sad'))
+    }
+  }, [currentNpc, setNpc])
 
   return (
     <Story npc={npc as CHARACTER_TYPE} location={location} nextLevel={level === 1 ? 1.5 : 2} />

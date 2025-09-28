@@ -2,24 +2,36 @@ export const LEVEL_ONE_DIALOG = {
   story: {
     mainStarts: true,
     main: [
-    "This place is such a mess, no wonder the wizard can't find his familiar.",
-    "Maybe the creature is hiding behind them. But how do I move all of this?",
-    "Alright, I'll start blasting them aside.",
+      { id: 'main', text: "This place is such a mess, no wonder the wizard can't find his familiar." },
+      { id: 'main', text: "Maybe the creature is hiding behind them. But how do I move all of this?" },
+      { id: 'main', text: "Alright, I'll start blasting them aside." },
     ],
-    npc:  [
-    "Boxes piled from floor to ceiling…",
-    "Easy. You don't need strength. Your staff holds the wizard's magic. Click on them, and they'll vanish.",
-    "<<END>>"
-  ]
+    npc: [
+      { id: 'cindrel', text: "Boxes piled from floor to ceiling…" },
+      { id: 'cindrel', text: "Easy. You don't need strength. Your staff holds the wizard's magic. Click on them, and they'll vanish." },
+      { id: 'cindrel', text: "<<END>>" },
+    ],
   },
   battle: {
     mainStarts: false,
-    main: ["On guard!"],
-    npc: ["Oh no, it's a monster!", "<<END>>"]
+    main: [
+      { id: 'main', text: "On guard!" },
+    ],
+    npc: [
+      { id: 'cindrel', text: "Oh no, it's a monster!" },
+      { id: 'cindrel', text: "<<END>>" },
+    ],
   },
   ending: {
     mainStarts: true,
-    main: ["That was close!", "Let's move on, I am covered in dust!", "<<END>>"],
-    npc:  ["I can't see the familiar anywhere", "<<END>>"]
-  }
+    main: [
+      { id: 'main', text: "That was close!" },
+      { id: 'main', text: "Let's move on, I am covered in dust!" },
+      { id: 'main', text: "<<END>>" },
+    ],
+    npc: [
+      { id: 'cindrel', text: "I can't see the familiar anywhere" },
+      { id: 'cindrel', text: "<<END>>" },
+    ],
+  },
 }

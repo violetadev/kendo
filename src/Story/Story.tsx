@@ -14,7 +14,7 @@ type StoryProps = {
 }
 
 export const Story: React.FC<StoryProps> = ({ location, npc, nextLevel }) => {
-  const { characterId, username, setLevel } = useCharacterContext();
+  const { characterId, username, level, setLevel } = useCharacterContext();
   const {
     handleNext,
     isMainTurn,
@@ -22,8 +22,12 @@ export const Story: React.FC<StoryProps> = ({ location, npc, nextLevel }) => {
     npcDone,
     allDone,
     currentMain,
+    currentNpcId,
     currentNpc
   } = useDialog();
+  console.log(level)
+
+  const mainCharacter = CHARACTERS.find(c => c.id === characterId) as CHARACTER_TYPE;
 
   return (
     <Background timeOfDayProp="afternoon">
@@ -45,9 +49,9 @@ export const Story: React.FC<StoryProps> = ({ location, npc, nextLevel }) => {
             isTurn={isMainTurn && !mainDone && !allDone}
             dialogText={currentMain}
             handleNext={handleNext}
-            accent="purple"
+            accent={mainCharacter.accent}
             characterName={username}
-            characterImage={CHARACTERS.find(c => c.id === characterId)?.image || ""}
+            characterImage={mainCharacter.image}
           />
           {/* LOCATION */}
           <div>
@@ -73,9 +77,9 @@ export const Story: React.FC<StoryProps> = ({ location, npc, nextLevel }) => {
             isTurn={!isMainTurn && !npcDone && !allDone}
             dialogText={currentNpc}
             handleNext={handleNext}
-            accent="green"
-            characterName={npc.name}
-            characterImage={npc.image}
+            accent={npc.accent}
+            characterName={NPCS.find(n => n.id === currentNpcId)?.name ?? npc.name}
+            characterImage={NPCS.find(n => n.id === currentNpcId)?.image ?? npc.image}
           />
         </StackLayout>
       </StackLayout>

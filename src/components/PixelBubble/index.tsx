@@ -4,9 +4,7 @@ import { Button } from "@progress/kendo-react-buttons";
 import { arrowRightIcon } from "@progress/kendo-svg-icons";
 import styles from "./pixelBubble.module.scss";
 import { Typography } from "@progress/kendo-react-common";
-import { Fade } from "@progress/kendo-react-animation";
-
-export type Accent = "purple" | "grey" | "blue" | "green";
+import { Accent } from "../../common";
 
 type Props = {
   title?: string;

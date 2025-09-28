@@ -32,6 +32,8 @@ export const Fight: React.FC<FightProps> = ({ location, npc, nextLevel, monster 
     setLevel(nextLevel)
   }
 
+  const mainCharacter = CHARACTERS.find(c => c.id === characterId) as CHARACTER_TYPE;
+
   return (
     <Background timeOfDayProp="afternoon">
       <StackLayout
@@ -52,9 +54,9 @@ export const Fight: React.FC<FightProps> = ({ location, npc, nextLevel, monster 
             isTurn={isMainTurn && !mainDone && !allDone}
             dialogText={currentMain}
             handleNext={handleNext}
-            accent="purple"
+            accent={mainCharacter.accent}
             characterName={username}
-            characterImage={CHARACTERS.find(c => c.id === characterId)?.image || ""}
+            characterImage={mainCharacter.image}
           />
           {/* LOCATION */}
           <div style={{ position: "relative", width: 400, height: 600 }}>
@@ -72,7 +74,7 @@ export const Fight: React.FC<FightProps> = ({ location, npc, nextLevel, monster 
             isTurn={!isMainTurn && !npcDone && !allDone}
             dialogText={currentNpc}
             handleNext={handleNext}
-            accent="green"
+            accent={npc.accent}
             characterName={npc.name}
             characterImage={npc.image}
           />

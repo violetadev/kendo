@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useCharacterContext } from "../../context/CharacterContext";
+import './Obstacles.styles.scss';
 import { useFlash } from "../../common/useFlash";
 
 type MonsterProps = {
@@ -12,7 +12,7 @@ export const Monster: React.FC<MonsterProps> = ({ monsterImage, icon, setIsDone 
   const { triggerFlash, FlashOverlay } = useFlash();
   const [jump, setJump] = useState(false);
   const [monster, setMonster] = useState(true);
-  const [ratHits, setRatHits] = useState(0);
+  const [monsterHits, setMonsterHits] = useState(0);
   const [exploding, setExploding] = useState(false);
   const totalHitsRequired = 10;
 
@@ -23,14 +23,14 @@ export const Monster: React.FC<MonsterProps> = ({ monsterImage, icon, setIsDone 
     setJump(true);
     setTimeout(() => setJump(false), 400);
 
-    setRatHits((prev) => {
+    setMonsterHits((prev) => {
       const newHits = prev + 1;
 
       if (newHits >= totalHitsRequired) {
         // Trigger explosion instead of immediate death
         setExploding(true);
 
-        // After explosion, remove rat and advance level
+        // After explosion, remove monster and advance level
         setTimeout(() => {
           setMonster(false);
         }, 600); // match explosion animation length
@@ -80,7 +80,7 @@ export const Monster: React.FC<MonsterProps> = ({ monsterImage, icon, setIsDone 
             <img
               src={monsterImage}
               alt="monster"
-              className={`rat ${jump ? "jump" : ""}`}
+              className={`monster ${jump ? "jump" : ""}`}
               width={300}
               height={300}
             />

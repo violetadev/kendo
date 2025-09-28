@@ -1,20 +1,23 @@
 export const CHARACTERS = [
-  { id: 'purple', image: 'assets/purple.png', name: 'Elorien'},
-  { id: 'blue', image: 'assets/blue.png', name: 'Oriven'},
-  { id: 'grey', image: 'assets/grey.png', name: 'Mirev'},
+  { id: 'purple', image: 'assets/purple.png', name: 'Elorien', accent: 'purple'},
+  { id: 'blue', image: 'assets/blue.png', name: 'Oriven', accent: 'blue'},
+  { id: 'grey', image: 'assets/grey.png', name: 'Mirev', accent: 'grey'},
 ];
 
 export const NPCS = [
-  { id: 'wizard', image: 'assets/wizard.png', name: 'Thalen'},
-  { id: 'wizardhappy', image: 'assets/wizard_worried.png', name: 'Thalen'},
-  { id: 'wizardsad', image: 'assets/wizard_worried.png', name: 'Thalen'},
-  { id: 'familiar', image: 'assets/familiar.png', name: 'Fuzzle', imageHappy: 'assets/familiar_happy.png'},
-  { id: 'cindrel', image: 'assets/mascot.png', name: 'Cindrel'}
+  { id: 'wizard', image: 'assets/wizard.png', name: 'Thalen', accent: 'green'},
+  { id: 'wizard_happy', image: 'assets/wizard_happy.png', name: 'Thalen', accent: 'green'},
+  { id: 'wizard_sad', image: 'assets/wizard_worried.png', name: 'Thalen', accent: 'green'},
+  { id: 'familiar', image: 'assets/familiar.png', name: 'Fuzzle', accent: 'black'},
+  { id: 'familiar_happy', image: 'assets/familiar_happy.png', name: 'Fuzzle', accent: 'black'},
+  { id: 'cindrel', image: 'assets/mascot.png', name: 'Cindrel', accent: 'red'},
+  { id: 'cindrel_2', image: 'assets/mascot2.png', name: 'Cindrel', accent: 'red'},
+  { id: 'cindrel_3', image: 'assets/mascot3.png', name: 'Cindrel', accent: 'red'},
 ];
 
 export const MASCOT = { 
   id: 'cindrel', 
-  image: 'assets/mascot.png', 
+  image: 'assets/mascot.png',   
   name: 'Cindrel',
   levels: [
     { 

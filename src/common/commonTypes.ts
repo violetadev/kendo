@@ -2,7 +2,10 @@ export type CHARACTER_TYPE = {
   id: string,
   image: string, 
   name: string,
+  accent: Accent,
 };
+
+export type Accent = "purple" | "grey" | "blue" | "green" | "red" | "black";
 
 export type OBSTACLE_TYPE = {
   id: string,
@@ -18,10 +21,15 @@ export type LOCATION_TYPE = {
 
 export type LEVEL = number;
 
+export type DialogLine = {
+  id: string;
+  text: string;
+};
+
 export type DIALOG_TYPE = {
-    mainStarts: boolean;
-    main: string[];
-    npc: string[];
+  mainStarts: boolean;
+  main: DialogLine[];
+  npc: DialogLine[];
 };
 
 export type DIALOG_LEVEL_TYPE =  {
