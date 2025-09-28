@@ -10,6 +10,7 @@
     "@progress/kendo-react-inputs": "^12.1.0",
     "@progress/kendo-react-layout": "^12.1.0",
     "@progress/kendo-react-listbox": "^12.1.0",
+    "@progress/kendo-react-progressbars": "^12.1.0",
     "@progress/kendo-theme-default": "^12.0.1",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.8.0",

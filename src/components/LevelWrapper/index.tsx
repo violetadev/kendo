@@ -1,4 +1,5 @@
 import { useCharacterContext } from "../../context/CharacterContext";
+import { Monster } from "../Obstacles";
 import { CharacterSelection } from "./CharacterSelection";
 import { Credits } from "./Credits";
 import { Final } from "./Final";

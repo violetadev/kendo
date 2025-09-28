@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import './Obstacles.styles.scss';
 import { useFlash } from "../../common/useFlash";
+import { ProgressBar } from "@progress/kendo-react-progressbars";
+import { LEVEL } from "../../common";
+import { useCharacterContext } from "../../context/CharacterContext";
 
 type MonsterProps = {
   monsterImage: string;
@@ -8,13 +11,29 @@ type MonsterProps = {
   setIsDone: () => void;
 }
 
+const getHp = (level: LEVEL) => {
+  switch (level) {
+    case 1.1:
+      return 10
+    case 2.1:
+      return 15
+    case 3.1:
+      return 20;
+    default:
+      return 10;
+  }
+}
+
 export const Monster: React.FC<MonsterProps> = ({ monsterImage, icon, setIsDone }) => {
   const { triggerFlash, FlashOverlay } = useFlash();
+  const { level } = useCharacterContext();
   const [jump, setJump] = useState(false);
   const [monster, setMonster] = useState(true);
   const [monsterHits, setMonsterHits] = useState(0);
   const [exploding, setExploding] = useState(false);
-  const totalHitsRequired = 10;
+  const totalHitsRequired = getHp(level);
+  const maxHp = totalHitsRequired * 10;
+  const remainingHp = Math.max(0, maxHp - monsterHits * 10);
 
   const hitMonster = (e: React.MouseEvent) => {
     triggerFlash(e.clientX, e.clientY, icon);
@@ -85,9 +104,17 @@ export const Monster: React.FC<MonsterProps> = ({ monsterImage, icon, setIsDone 
               height={300}
             />
           )}
-          {exploding && <div className="explosion" style={{ fontSize: "120px" }}>
-            💥
-          </div>}
+          {exploding &&
+            <div className="explosion" style={{ fontSize: "120px" }}>
+              💥
+            </div>
+          }
+          <ProgressBar
+            value={remainingHp}
+            min={0}
+            max={maxHp}
+            className="hp"
+          />
         </div>
       </div>
       <FlashOverlay />
