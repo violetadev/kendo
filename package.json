@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@progress/kendo-react-animation": "^12.1.0",
     "@progress/kendo-react-buttons": "^12.1.0",
     "@progress/kendo-react-common": "^12.1.0",
     "@progress/kendo-react-indicators": "^12.1.0",

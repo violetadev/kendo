@@ -1,0 +1,37 @@
+@keyframes ratMove {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(20px); } 
+  100% { transform: translateX(0); }
+}
+
+.rat {
+  transition: transform 0.3s;
+  animation: ratMove 0.8s ease-in-out infinite; 
+}
+
+.rat.jump {
+  animation: ratJump 0.4s ease; 
+}
+
+@keyframes ratJump {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-40px); }
+  60%  { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+
+.explosion {
+  width: 300px;
+  height: 300px;
+  animation: explode 0.6s ease forwards;
+}
+
+@keyframes boxShake {
+  0%   { transform: translateX(0) rotate(0); }
+  15%  { transform: translateX(-4px) rotate(-1.5deg); }
+  30%  { transform: translateX(4px)  rotate(1.5deg); }
+  45%  { transform: translateX(-3px) rotate(-1deg); }
+  60%  { transform: translateX(3px)  rotate(1deg); }
+  75%  { transform: translateX(-2px) rotate(-0.5deg); }
+  100% { transform: translateX(0) rotate(0); }
+}

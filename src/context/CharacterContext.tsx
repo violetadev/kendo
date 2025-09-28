@@ -4,9 +4,11 @@ type CharacterContextType = {
   characterId: string | null;
   setCharacterId: (id: string | null) => void;
   level: number;
-  setLevel: (level: number) => void;
+  setLevel: React.Dispatch<React.SetStateAction<number>>
   username: string;
   setUsername: (name: string) => void;
+  mascotLevel: number;
+  setMascotLevel: (level: number) => void;
 };
 
 const CharacterContext = createContext<CharacterContextType | undefined>(undefined);
@@ -15,9 +17,10 @@ export const CharacterProvider = ({ children }: { children: ReactNode }) => {
   const [characterId, setCharacterId] = useState<string | null>(null);
   const [level, setLevel] = useState<number>(0);
   const [username, setUsername] = useState<string>("");
+  const [mascotLevel, setMascotLevel] = useState<number>(0);
 
   return (
-    <CharacterContext.Provider value={{ characterId, setCharacterId, level, setLevel, username, setUsername }}>
+    <CharacterContext.Provider value={{ characterId, setCharacterId, level, setLevel, username, setUsername, mascotLevel, setMascotLevel }}>
       {children}
     </CharacterContext.Provider>
   );

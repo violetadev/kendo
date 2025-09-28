@@ -1,0 +1,5 @@
+.box-img.shake {
+  animation: boxShake 220ms cubic-bezier(.36,.07,.19,.97) 1;
+  will-change: transform;
+  display: block;
+}

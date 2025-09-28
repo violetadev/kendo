@@ -2,10 +2,10 @@ import { ReactNode } from "react";
 import styles from "./styles.module.scss";
 import { useGlobalContext } from "../../context/GlobalContext";
 
-export const Background = ({ children }: { children: ReactNode }) => {
+export const Background = ({ children, timeOfDayProp }: { children: ReactNode, timeOfDayProp?: string }) => {
   const { timeOfDay } = useGlobalContext()
   return (
-    <div className={`${styles["day-cycle"]} ${styles[timeOfDay]}`}>
+    <div className={`${styles["day-cycle"]} ${styles[timeOfDayProp || timeOfDay]}`}>
       {children}
     </div>
   );

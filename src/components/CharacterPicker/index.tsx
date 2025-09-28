@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@progress/kendo-react-buttons";
 import { useCharacterContext } from "../../context/CharacterContext";
 import CharacterPickerToolbar from "./CharacterPickerToolbar";
-import { CHARACTER_TYPE, CHARACTERS } from "../../common/commonConstants";
+import { CHARACTER_TYPE, CHARACTERS } from "../../common/";
 import { UsernameInput } from "../UsernameInput";
 
 type Character = {
@@ -14,7 +14,7 @@ type Character = {
 type Item = Character & { selected?: boolean };
 
 const CharacterPicker: React.FC = () => {
-  const { setCharacterId, username } = useCharacterContext();
+  const { setCharacterId, username, setLevel } = useCharacterContext();
   const [characterSelected, setCharacterSelected] = useState<CHARACTER_TYPE>(CHARACTERS[0]);
 
   const handleItemClick = (item: string) => {
@@ -23,6 +23,7 @@ const CharacterPicker: React.FC = () => {
 
   const handleSave = () => {
     setCharacterId(characterSelected.id);
+    setLevel(1)
   };
 
   return (
