@@ -20,9 +20,7 @@ export const Intro: React.FC = () => {
   }, [level])
 
   useEffect(() => {
-    console.log(currentNpc, '>current')
     if ((currentNpc?.includes("Forgive me") || currentNpc.includes("It is no ordinary creature"))) {
-      console.log("in")
       setNpc(NPCS.find(npc => npc.id === 'wizard_sad'))
     }
   }, [currentNpc, setNpc])

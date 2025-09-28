@@ -6,6 +6,7 @@ import { Background } from "../components/Background";
 import { StackLayout } from "@progress/kendo-react-layout";
 import { Character } from "../components/Character";
 import { Button } from "@progress/kendo-react-buttons";
+import { Tooltip } from "@progress/kendo-react-tooltip";
 
 type StoryProps = {
   location: LOCATION_TYPE;
@@ -73,14 +74,16 @@ export const Story: React.FC<StoryProps> = ({ location, npc, nextLevel }) => {
             )}
           </div>
           {/* NPC */}
-          <Character
-            isTurn={!isMainTurn && !npcDone && !allDone}
-            dialogText={currentNpc}
-            handleNext={handleNext}
-            accent={npc.accent}
-            characterName={NPCS.find(n => n.id === currentNpcId)?.name ?? npc.name}
-            characterImage={NPCS.find(n => n.id === currentNpcId)?.image ?? npc.image}
-          />
+          <Tooltip anchorElement="target" position="top" >
+            <Character
+              isTurn={!isMainTurn && !npcDone && !allDone}
+              dialogText={currentNpc}
+              handleNext={handleNext}
+              accent={npc.accent}
+              characterName={NPCS.find(n => n.id === currentNpcId)?.name ?? npc.name}
+              characterImage={NPCS.find(n => n.id === currentNpcId)?.image ?? npc.image}
+            />
+          </Tooltip>
         </StackLayout>
       </StackLayout>
     </Background >
