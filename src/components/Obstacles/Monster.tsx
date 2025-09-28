@@ -61,7 +61,7 @@ export const Monster: React.FC<MonsterProps> = ({ monsterImage, icon, setIsDone 
 
   useEffect(() => {
     if (!monster) { setIsDone() };
-  }, [monster]);
+  }, [monster, setIsDone]);
 
   return (
     <div

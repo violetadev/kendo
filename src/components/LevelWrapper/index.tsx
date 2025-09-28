@@ -1,8 +1,6 @@
 import { useCharacterContext } from "../../context/CharacterContext";
-import { Monster } from "../Obstacles";
 import { CharacterSelection } from "./CharacterSelection";
-import { Credits } from "./Credits";
-import { Final } from "./Final";
+import Credits from "./Credits";
 import { Intro } from "./Intro";
 import { LevelOne } from "./Level1";
 import { LevelTwo } from "./Level2";
@@ -20,6 +18,7 @@ export const LevelWrapper = () => {
       {(level === 3 || level === 3.1 || level === 3.5) && <LevelTwo />}
       {(level === 4 || level === 4.1 || level === 4.5) && <LevelThree />}
       {(level === 5 || level === 5.1 || level === 5.5) && <LevelFour />}
+      {(level === 6) && <Credits />}
     </div>
   )
 }

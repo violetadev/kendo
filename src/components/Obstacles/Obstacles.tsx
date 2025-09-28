@@ -52,7 +52,7 @@ export const Obstacles: React.FC<ObstaclesProps> = ({ obstacleImage, icon, disab
     if (obstacles?.length === 0) {
       setLevel(nextLevel)
     }
-  }, [obstacles, setLevel])
+  }, [obstacles, setLevel, nextLevel])
 
   return (
     <div

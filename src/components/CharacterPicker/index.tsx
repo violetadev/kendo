@@ -59,7 +59,7 @@ const CharacterPicker: React.FC = () => {
         </Dialog>
       )}
       <Button themeColor="primary" disabled={!characterSelected} onClick={toggleDialog}>
-        Save character
+        continue
       </Button>
     </div>
   );

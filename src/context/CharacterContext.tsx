@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import { LEVEL } from "../common";
 
 type CharacterContextType = {
   characterId: string | null;

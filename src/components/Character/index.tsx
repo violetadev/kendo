@@ -2,6 +2,7 @@ import React from "react";
 import { PixelBubble } from "../PixelBubble";
 import { useCharacterContext } from "../../context/CharacterContext";
 import { Accent } from "../../common";
+import { Typography } from "@progress/kendo-react-common";
 
 type CharacterProps = { dialogText: string, handleNext: () => void, accent: Accent, characterName: string, characterImage?: string, isTurn: boolean }
 
@@ -27,7 +28,7 @@ export const Character: React.FC<CharacterProps> = ({ dialogText, handleNext, ac
           }}
         >
           <PixelBubble title={characterName} accent={accent} onNext={handleNext} direction={characterName === username ? "right" : "left"}>
-            {dialogText}
+            <Typography.p>{dialogText}</Typography.p>
           </PixelBubble>
         </div>
       )}
