@@ -40,13 +40,13 @@ export const MASCOT = {
 }
 
 export const MONSTERS = [
-  { id: 'rat', img: 'assets/rat.png', name: 'Magical Rat', spell: "🔥"},
-  { id: 'zombie', img: 'assets/zombie.png', name: 'Zombie', spell: "🔥"},
+  { id: 'rat', img: 'assets/rat.png', name: 'Magical Rat', spell: "⚡"},
+  { id: 'zombie', img: 'assets/zombie.png', name: 'Zombie', spell: "🌊"},
   { id: 'demon', img: 'assets/demon.png', name: 'Demon', spell: "🔥"},
 ]
 
 export const OBSTACLES = [
-  { id: 'boxes', img: 'assets/box.png', name: 'Heavy Boxes', spell: "🔥"},
-  { id: 'potions', img: 'assets/potions.png', name: 'Potions', spell: "🔥"},
-  { id: 'boulder', img: 'assets/boulder.png', name: 'Boulder', spell: "🔥"},
+  { id: 'boxes', img: 'assets/box.png', name: 'Heavy Boxes', spell: "⚡"},
+  { id: 'potions', img: 'assets/potions.png', name: 'Potions', spell: "📦"},
+  { id: 'boulder', img: 'assets/boulder.png', name: 'Boulder', spell: "⛏️"},
 ]
